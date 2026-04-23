@@ -1,77 +1,55 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ColumnContainer = styled.div<{ columnColor: string }>`
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: ${({ theme }) => theme.borderRadius.medium};
-  width: ${({ theme }) => theme.sizes.columnWidth}px;
-  min-width: ${({ theme }) => theme.sizes.columnWidth}px;
-  margin: 0 8px;
+export const ColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 320px;
+  min-width: 320px;
+  gap: 24px;
+  align-self: flex-start;
+  box-sizing: border-box;
 `;
 
-export const ColumnHeader = styled.div<{ color: string }>`
+export const TaskListContainer = styled.div`
+  background-color: var(--gray-5);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   padding: 12px;
-  background-color: ${({ color }) => color};
-  border-top-left-radius: ${({ theme }) => theme.borderRadius.medium};
-  border-top-right-radius: ${({ theme }) => theme.borderRadius.medium};
+  border: 1px solid var(--gray-10);
+  min-height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+`;
+
+export const AddTaskWrapper = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
+  margin-top: 12px;
 `;
 
-export const ColumnTitle = styled.h3`
-  margin: 0;
-  font-size: 16px;
-  flex-grow: 1;
-`;
-
-export const TaskCount = styled.span`
-  background-color: rgba(0,0,0,0.3);
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  margin-left: 8px;
-`;
-
-export const TaskList = styled.div`
-  padding: 8px;
-  flex-grow: 1;
-  min-height: 200px;
-`;
-
-export const AddButton = styled.button`
-  background: none;
-  border: none;
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 8px;
-  margin: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  display: flex;
+export const AddTaskButton = styled.button<{ $color: string; $bgColor: string }>`
+  color: ${({ $color }) => $color};
+  background-color: ${({ $bgColor }) => $bgColor};
+  
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  border-radius: ${({ theme }) => theme.borderRadius.small};
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.gray100};
-  }
-`;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  
+  width: 100%; 
+  min-height: 44px;
+  height: 44px;
 
-export const DeleteColumnButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  opacity: 0.7;
+  font-family: var(--font-family-main);
+  font-size: 14px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  box-sizing: border-box;
+
   &:hover {
-    opacity: 1;
+    opacity: 0.8;
   }
 `;

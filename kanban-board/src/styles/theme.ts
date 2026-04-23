@@ -1,43 +1,33 @@
-import { DefaultTheme } from 'styled-components';
+import { ITheme } from '@/interfaces/styled';
 
-export const theme: DefaultTheme = {
+export const theme: ITheme = {
   colors: {
-    primary: '#3b82f6',
-    secondary: '#6b7280',
-    success: '#10b981',
-    danger: '#ef4444',
-    warning: '#f59e0b',
-    bg: '#f9fafb',
-    font: '#111827',
-    white: '#ffffff',
-    gray100: '#f3f4f6',
-    gray300: '#d1d5db',
-    gray500: '#6b7280',
-    gray700: '#374151',
+    bg: 'var(--gray-5)',
+    cardBg: 'var(--gray0-white)',
+    text: {
+      primary: 'var(--gray-80)',
+      secondary: 'var(--gray-60)',
+    },
+    border: 'var(--gray-20)',
+    columns: {
+      todo: 'var(--brand-60)',
+      inProgress: 'var(--warning-50)',
+      done: 'var(--success-50)',
+    },
+    priority: {
+      high: { text: 'var(--destructive-50)', bg: 'var(--destructive-5)' },
+      medium: { text: 'var(--brand-60)', bg: 'var(--brand-5)' },
+      low: { text: 'var(--success-50)', bg: 'var(--success-5)' },
+    },
+  },
+  sizes: {
+    borderRadius: {
+      small: '8px',
+      medium: '24px', // Из кода Figma (Frame6)
+      large: '32px',  // Из кода Figma (Frame3)
+    },
   },
   media: {
     mobile: '(max-width: 390px)',
-    tablet: '(max-width: 768px)',
-    desktop: '(min-width: 1024px)',
-  },
-  sizes: {
-    headerHeight: 60,
-    sidebarWidth: 240,
-    columnWidth: 300,
-  },
-  durations: {
-    fast: 200,
-    normal: 300,
-    slow: 500,
-  },
-  order: {
-    modal: 1000,
-    dropdown: 100,
-    header: 50,
-  },
-  borderRadius: {
-    small: '4px',
-    medium: '8px',
-    large: '12px',
   },
 };

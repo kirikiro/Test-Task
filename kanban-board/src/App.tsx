@@ -1,19 +1,25 @@
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '@/styles/theme';
-import { GlobalStyle } from '@/styles/global';
 import { store } from '@/store';
-import KanbanBoard from '@/pages/KanbanBoard';
+import { theme } from '@/styles/theme';
+import { GlobalStyles } from '@/styles/global';
+import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
+import { BoardPage } from '@/pages/BoardPage';
 
-function App() {
-  return (
+const App = () => (
+  <ErrorBoundary>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <KanbanBoard />
+        <GlobalStyles />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<BoardPage />} />
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
-  );
-}
+  </ErrorBoundary>
+);
 
 export default App;

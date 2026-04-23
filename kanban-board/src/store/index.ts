@@ -1,10 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
-import kanbanReducer from './slices/kanbanSlice';
+
+import { saveState } from '@/utils/localStorage';
+
+import boardReducer from './boardSlice';
 
 export const store = configureStore({
   reducer: {
-    kanban: kanbanReducer,
+    board: boardReducer,
   },
+});
+
+store.subscribe(() => {
+  saveState({
+    columns: store.getState().board.columns,
+  });
 });
 
 export type RootState = ReturnType<typeof store.getState>;
