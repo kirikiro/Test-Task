@@ -12,7 +12,7 @@ const App = () => (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <BrowserRouter>
+        <BrowserRouter basename="/Test-Task">
           <Routes>
             <Route path="/" element={<BoardPage />} />
           </Routes>
